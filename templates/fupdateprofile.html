@@ -1,0 +1,32 @@
+
+
+
+{% extends 'base_f.html' %}
+
+{% block content %}
+
+
+<h2>Update Profile</h2>
+<br><br>
+
+<table id="tab" width="100%"  border>
+<tr><th>Name<th>Email<th>Phone<th>Qualification<TH>Address
+{% for d1 in data %}
+<form method="post" action="/fupdateaction/">
+{% csrf_token %}
+	
+<tr><td>
+<input type="text" name="name" required value="{{d1.name}}">
+<td>{{d1.email}}
+<td><input type="text" name="ph" value="{{d1.phone}}">
+<td><input type="text" name="qua" value="{{d1.qualification}}">
+
+<td><input type="text" name="addr" value="{{d1.addr}}">
+
+{% endfor %}
+<tr><td><td><td><td><td align="right"><input type="submit" Value="Update">
+</form>
+</table><br><br>
+
+{% endblock %}
+
